@@ -308,6 +308,42 @@
     }
     .contact-row a:hover { color: var(--teal); }
 
+    /* ─ EXPERIENCE ─ */
+    .exp-list { display: flex; flex-direction: column; }
+    .exp-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .exp-row:first-child { border-top: 1px solid var(--rule); }
+    .exp-company {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      display: block;
+    }
+    .exp-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+    .exp-title {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--soft);
+      display: block;
+    }
+    .exp-period {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
     /* ─ FOOTER ─ */
     footer {
       padding: 48px 0 64px;
@@ -494,6 +530,58 @@
         <a class="article-title" href="#">pgvector vs OpenSearch: choosing the right vector store for your RAG pipeline</a>
         <span class="article-meta">Engineering</span>
       </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section fade" id="experience">
+    <p class="section-label">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-row">
+        <div class="exp-left">
+          <span class="exp-company">Barrenjoey</span>
+          <span class="exp-meta">Sydney, Australia</span>
+        </div>
+        <div class="exp-right">
+          <span class="exp-title">Data &amp; AI Lead Engineer</span>
+          <span class="exp-period">Nov 2023 — Present</span>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-left">
+          <span class="exp-company">Macquarie Group</span>
+          <span class="exp-meta">Sydney, Australia</span>
+        </div>
+        <div class="exp-right">
+          <span class="exp-title">Senior Manager</span>
+          <span class="exp-period">Aug 2018 — Nov 2023</span>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-left">
+          <span class="exp-company">Publicis Sapient</span>
+          <span class="exp-meta">Gurugram, India</span>
+        </div>
+        <div class="exp-right">
+          <span class="exp-title">Senior Associate L1</span>
+          <span class="exp-period">May 2016 — Jul 2018</span>
+        </div>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-left">
+          <span class="exp-company">Amdocs</span>
+          <span class="exp-meta">Gurugram, India</span>
+        </div>
+        <div class="exp-right">
+          <span class="exp-title">Senior Software Engineer</span>
+          <span class="exp-period">Oct 2012 — Apr 2016</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
