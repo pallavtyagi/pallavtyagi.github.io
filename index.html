@@ -93,6 +93,7 @@
       flex-shrink: 0;
       margin-top: 6px;
       border: 2px solid var(--teal-light);
+      will-change: transform;
     }
 
     .hero-text {}
@@ -178,6 +179,7 @@
       border-left: 2px solid var(--rule);
       margin-bottom: 4px;
       transition: border-color 0.2s;
+      will-change: transform;
     }
     .service-item:hover {
       border-left-color: var(--teal);
@@ -210,6 +212,7 @@
       border-radius: 2px;
       padding: 20px 24px;
       transition: border-left-color 0.15s, background 0.15s;
+      will-change: transform;
     }
     .project-card:hover {
       background: var(--teal-light);
@@ -458,6 +461,89 @@
       color: var(--muted);
     }
 
+    /* ─ PARALLAX ─ */
+
+    /* Scroll progress bar — teal line that grows across the top as you scroll */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--teal);
+      z-index: 1000;
+      pointer-events: none;
+      transition: width 0.05s linear;
+    }
+
+    /* Hero gets a tall fixed-background panel — classic parallax */
+    .hero-parallax-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 60% at 92% 15%, rgba(10,112,112,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 50% at 5% 85%, rgba(10,112,112,0.06) 0%, transparent 65%);
+      will-change: transform;
+    }
+
+    /* Floating teal orb — drifts as you scroll */
+    .parallax-orb {
+      position: fixed;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      top: -80px;
+      right: -100px;
+      background: radial-gradient(circle, rgba(10,112,112,0.07) 0%, transparent 68%);
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    /* Second orb lower left */
+    .parallax-orb-2 {
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      bottom: 10vh;
+      left: -80px;
+      background: radial-gradient(circle, rgba(10,112,112,0.055) 0%, transparent 68%);
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    /* Thin teal vertical accent that slides based on scroll */
+    .parallax-rule {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 100vh;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(10,112,112,0.15) 25%,
+        rgba(10,112,112,0.25) 50%,
+        rgba(10,112,112,0.15) 75%,
+        transparent 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    /* Ensure content sits above parallax layers */
+    .page { position: relative; z-index: 1; }
+    footer { position: relative; z-index: 1; }
+    .hero { position: relative; z-index: 1; }
+    .section { position: relative; z-index: 1; }
+
     /* ─ FADE ─ */
     .fade {
       opacity: 0;
@@ -546,9 +632,9 @@
   <div class="project-card">
     <div class="project-top">
       <span class="project-name">SignalWave</span>
-      <span class="project-badge badge-live">In Beta Testing</span>
+      <span class="project-badge badge-dev">Beta</span>
     </div>
-    <p class="project-body">AI-first platform for bulk email, WhatsApp campaigns, and full marketing automation. Highly scalable and built to work with your existing AI tools.</p>
+    <p class="project-body">AI-first platform for bulk email, WhatsApp campaigns, and full marketing automation. Highly scalable and built to work with your existing AI tools. Currently in beta testing.</p>
     <a class="project-url" href="https://signalwave-web.vercel.app" target="_blank" rel="noopener">signalwave-web.vercel.app &rarr;</a>
   </div>
 
@@ -707,23 +793,86 @@
 
 </div>
 
-<script>
-  // Nav scroll — minimal, just a class on body
-  window.addEventListener('scroll', () => {
-    document.body.classList.toggle('scrolled', window.scrollY > 40);
-  });
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="hero-parallax-bg" id="heroBg"></div>
+<div class="parallax-orb" id="orb1"></div>
+<div class="parallax-orb-2" id="orb2"></div>
+<div class="parallax-rule" id="pxRule"></div>
 
-  // Fade in on scroll
-  const els = document.querySelectorAll('.fade');
-  const io = new IntersectionObserver(entries => {
+<script>
+  // ── Fade in on scroll ──
+  const fadeEls = document.querySelectorAll('.fade');
+  const fadeObserver = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
         setTimeout(() => e.target.classList.add('in'), i * 40);
-        io.unobserve(e.target);
+        fadeObserver.unobserve(e.target);
       }
     });
   }, { threshold: 0.08 });
-  els.forEach(el => io.observe(el));
+  fadeEls.forEach(el => fadeObserver.observe(el));
+
+  // ── Parallax engine ──
+  const scrollProgress = document.getElementById('scrollProgress');
+  const heroBg         = document.getElementById('heroBg');
+  const orb1           = document.getElementById('orb1');
+  const orb2           = document.getElementById('orb2');
+  const pxRule         = document.getElementById('pxRule');
+  const photo          = document.querySelector('.photo');
+
+  let ticking = false;
+
+  function applyParallax() {
+    const sy    = window.scrollY;
+    const maxSy = document.documentElement.scrollHeight - window.innerHeight;
+
+    // ── Scroll progress bar ──
+    if (scrollProgress) {
+      scrollProgress.style.width = (sy / maxSy * 100) + '%';
+    }
+
+    // ── Hero background gradient drifts UP slower than content (classic parallax) ──
+    // Content scrolls at 1x, background moves at 0.4x → clear depth separation
+    if (heroBg) {
+      heroBg.style.transform = `translateY(${sy * 0.4}px)`;
+    }
+
+    // ── Orbs drift at different rates for layered depth ──
+    if (orb1) {
+      // Top-right orb: moves UP slower (feels behind the content)
+      orb1.style.transform = `translateY(${sy * 0.25}px) translateX(${sy * -0.015}px)`;
+    }
+    if (orb2) {
+      // Bottom-left orb: moves UP at a different speed
+      orb2.style.transform = `translateY(${sy * -0.18}px) translateX(${sy * 0.01}px)`;
+    }
+
+    // ── Vertical teal rule slides along the left edge ──
+    if (pxRule) {
+      // Moves upward faster than content — feels like a foreground layer
+      pxRule.style.transform = `translateY(${sy * -0.12}px)`;
+      // Also drifts slightly left→right
+      const xOffset = Math.min(sy * 0.03, 24); // max 24px drift inward
+      pxRule.style.left = xOffset + 'px';
+    }
+
+    // ── Hero photo drifts at 0.15x (feels like a mid-ground layer) ──
+    if (photo) {
+      photo.style.transform = `translateY(${sy * 0.15}px)`;
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(applyParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Run on load
+  applyParallax();
 </script>
 
 </body>
