@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build a SaaS With AI Agents: A Weekend Story</title>
-  <meta name="description" content="How one developer built a bulk email SaaS in a weekend using 4 parallel AI agent teams and 9 system diagrams. 55% faster task completion (GitHub Research).">
+  <meta name="description" content="How one developer built a bulk email SaaS in a weekend using 5 parallel AI agent teams — including a dedicated code reviewer — and 9 system diagrams.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pallavtyagi.github.io/blog/build-saas-with-ai-agents.html">
   <meta name="author" content="Pallav Tyagi">
@@ -13,7 +13,7 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://pallavtyagi.github.io/blog/build-saas-with-ai-agents.html">
   <meta property="og:title" content="Build a SaaS With AI Agents: A Weekend Story">
-  <meta property="og:description" content="From personal email pain to production SaaS in 48 hours. 4 AI agent teams, 9 architecture diagrams, and Claude testing the app in Chrome.">
+  <meta property="og:description" content="From personal email pain to production SaaS in 48 hours. 5 AI agent teams — including a code reviewer — 9 architecture diagrams, and Claude testing the app in Chrome.">
   <meta property="og:site_name" content="Pallav Tyagi">
   <meta property="article:author" content="Pallav Tyagi">
   <meta property="article:published_time" content="2026-03-12">
@@ -26,7 +26,7 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Build a SaaS With AI Agents: A Weekend Story">
-  <meta name="twitter:description" content="From personal email pain to production SaaS in 48 hours. 4 AI agent teams, 9 architecture diagrams, and Claude testing the app in Chrome.">
+  <meta name="twitter:description" content="From personal email pain to production SaaS in 48 hours. 5 AI agent teams — including a code reviewer — 9 architecture diagrams, and Claude testing the app in Chrome.">
   <meta name="twitter:image" content="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop&q=80">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -304,7 +304,7 @@
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Build a SaaS With AI Agents: A Weekend Story",
-    "description": "How one developer built a bulk email SaaS in a weekend using 4 parallel AI agent teams, 9 system diagrams, and Claude testing the app in Chrome.",
+    "description": "How one developer built a bulk email SaaS in a weekend using 5 parallel AI agent teams — including a dedicated code reviewer — 9 system diagrams, and Claude testing the app in Chrome.",
     "author": {
       "@type": "Person",
       "name": "Pallav Tyagi",
@@ -334,7 +334,7 @@
         "name": "Can a solo developer really build a SaaS in one weekend with AI agents?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, with major caveats. You need strong architecture skills to define the work upfront, and you should expect a brutal middle phase of integration debugging. GitHub Research found AI-assisted developers complete tasks 55% faster. Agent teams amplify this with parallelism. But the weekend includes sleep deprivation and 2am CI/CD fixes."
+          "text": "Yes, with major caveats. You need strong architecture skills to define the work upfront. Claude Code agent teams amplify output with parallelism — five agents including a dedicated code reviewer that inspects each task cycle and reports findings to the lead. The build agents even debugged their own CI/CD pipeline autonomously, reading failure logs and pushing fixes."
         }
       },
       {
@@ -366,7 +366,7 @@
         "name": "How much did the AI tooling and infrastructure cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Claude Code was used for all four agent sessions. Infrastructure costs (Railway starter tier, Vercel free tier, AWS SES at pennies per thousand emails) were minimal. Total weekend spend on AI and infrastructure was significantly less than one day of contract developer rates."
+          "text": "Claude Code was used for all five agent sessions — four builders plus a dedicated code reviewer. Infrastructure costs (Railway starter tier, Vercel free tier, AWS SES at pennies per thousand emails) were minimal. Total weekend spend on AI and infrastructure was significantly less than one day of contract developer rates."
         }
       }
     ]
@@ -388,7 +388,7 @@
       <span class="blog-read-time">18 min read</span>
     </div>
     <h1 class="blog-title">Build a SaaS With AI Agents: A Weekend Story</h1>
-    <p class="blog-subtitle">From Python scripts and S3 parsing to an AI-native email platform in 48 hours &mdash; four agent teams, nine architecture diagrams, and an MCP connector that lets AI build your templates.</p>
+    <p class="blog-subtitle">From Python scripts and S3 parsing to an AI-native email platform in 48 hours &mdash; five agent teams (including a dedicated code reviewer), nine architecture diagrams, and an MCP connector that lets AI build your templates.</p>
   </header>
 
 <main id="main">
@@ -402,7 +402,7 @@
     <!-- Hero Image -->
     <figure>
       <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop&q=80"
-           alt="Abstract programming code on a dark screen representing a weekend hackathon where four AI agent teams build a micro-SaaS from scratch in parallel"
+           alt="Abstract programming code on a dark screen representing a weekend hackathon where five AI agent teams build a micro-SaaS from scratch in parallel"
            width="1200" height="630" fetchpriority="high" decoding="async">
       <figcaption>One weekend, four AI agents, 28 tasks, one deployed product. Photo via Unsplash.</figcaption>
     </figure>
@@ -411,7 +411,7 @@
 
     <p>And here's the thing &mdash; this isn't a niche problem. Every team that outgrows Mailchimp but doesn't want to run Salesforce Marketing Cloud hits this wall. They need a tool simple enough that AI can help with the hard parts: building templates inside the tool itself, or crafting them in Claude and pushing them through an MCP connector. That's the product I set out to build.</p>
 
-    <p>So I built a micro-SaaS email platform using four parallel AI agent teams through Claude Code. The <a href="https://dora.dev/research/2025/dora-report/" target="_blank" rel="noopener">DORA 2025 Report</a> found that 90% of developers now use AI tools in some capacity. Most use them for autocomplete suggestions. I used them as an entire engineering organisation. One weekend. Twenty-eight tasks. Four agents. Nine architecture diagrams. And one very sleep-deprived human making all the decisions.</p>
+    <p>So I built a micro-SaaS email platform using four parallel AI agent teams through Claude Code. The <a href="https://dora.dev/research/2025/dora-report/" target="_blank" rel="noopener">DORA 2025 Report</a> found that 90% of developers now use AI tools in some capacity. Most use them for autocomplete suggestions. I used them as an entire engineering organisation. One weekend. Twenty-eight tasks. Five agents &mdash; four builders and one code reviewer. Nine architecture diagrams. And one human making all the architectural decisions while the review agent kept quality in check after every task cycle.</p>
 
     <h2>Why Did I Need to Build My Own Email Tool?</h2>
 
@@ -447,7 +447,7 @@
     <h3>The Key Features</h3>
 
     <ul>
-      <li><strong>Bulk sending at scale</strong> &mdash; a job queue with rate limiting, batched delivery, and a warm-up schedule that ramps from 50 emails per day to 200,000 over 14 days</li>
+      <li><strong>Bulk sending at scale</strong> &mdash; a job queue with rate limiting and batched delivery, built to handle 100,000 emails per hour from day one</li>
       <li><strong>Recipient deduplication</strong> &mdash; database-level uniqueness constraints prevent double-sends</li>
       <li><strong>Real-time tracking</strong> &mdash; delivery, bounces (hard and soft), opens, clicks, and unsubscribes streamed from SES events</li>
       <li><strong>Custom domain sending</strong> &mdash; SPF, DKIM, and DMARC verification on your own domains</li>
@@ -522,12 +522,12 @@
       <img src="https://images.pexels.com/photos/7988742/pexels-photo-7988742.jpeg?auto=compress&cs=tinysrgb&w=1200"
            alt="Developers collaborating around screens showing parallel streams of development work managed by AI agent teams building a micro-SaaS product"
            width="1200" height="630" loading="lazy" decoding="async">
-      <figcaption>AI agent teams enable true parallel development across frontend, backend, infra, and AI layers simultaneously. Photo via Pexels.</figcaption>
+      <figcaption>AI agent teams enable true parallel development across frontend, backend, infra, and AI layers &mdash; with a code reviewer closing the feedback loop. Photo via Pexels.</figcaption>
     </figure>
 
     <h2>How Did I Design the Entire System on a Friday Evening?</h2>
 
-    <p>Only 11% of organisations actively use agentic AI in production workflows (<a href="https://www.deloitte.com/us/en/insights/topics/technology-management/tech-trends/2026/agentic-ai-strategy.html" target="_blank" rel="noopener">Deloitte Tech Trends 2026</a>). A big reason? Most teams skip design and jump straight to prompting. With AI agents, the requirements document isn't just helpful &mdash; it's the entire foundation.</p>
+    <p>Most teams skip design and jump straight to prompting. With AI agents, the requirements document isn't just helpful &mdash; it's the entire foundation. Skimp on it, and the agents will fill gaps with confident, wrong assumptions.</p>
 
     <h3>The PRD Session: Specific Constraints, Not Vague Prompts</h3>
 
@@ -538,7 +538,7 @@
       <li><strong>The market gap:</strong> Between developer-raw (SES SDK) and marketing-bloated (Mailchimp)</li>
       <li><strong>The core user loop:</strong> Verify domain, import contacts, build template (with AI), send campaign, track results</li>
       <li><strong>Non-negotiables:</strong> Custom domain sending, AI template generation via MCP, workspace-scoped multi-tenancy</li>
-      <li><strong>Scale targets:</strong> 50 emails per day on day one, ramping to 200,000 per day over a 14-day warm-up</li>
+      <li><strong>Scale targets:</strong> 100,000 emails per hour from day one</li>
     </ul>
 
     <p>Writing requirements for AI agents requires 3&ndash;4x more specificity than writing for human developers. Humans fill gaps with intuition and questions at standup. Agents fill gaps with assumptions &mdash; often wrong ones. I spent almost three hours on the PRD and system design. That time paid for itself tenfold over the weekend.</p>
@@ -549,7 +549,7 @@
 
     <ol>
       <li><strong>High-Level Architecture</strong> &mdash; Three columns: Next.js frontend on Vercel, Fastify API on Railway (with PostgreSQL and Redis), and external services (SES, SNS, S3, Claude API). Clean separation, no frontend-to-database shortcuts.</li>
-      <li><strong>Email Sending Pipeline</strong> &mdash; The heart of the product. User hits &ldquo;Send,&rdquo; API creates a campaign record, BullMQ batches and rate-limits delivery, warm-up throttle controls velocity from 50 to 200,000 emails per day over 14 days.</li>
+      <li><strong>Email Sending Pipeline</strong> &mdash; The heart of the product. User hits &ldquo;Send,&rdquo; API creates a campaign record, BullMQ batches and rate-limits delivery, designed to push 100,000 emails per hour through SES.</li>
       <li><strong>SES Event Tracking</strong> &mdash; SES fires events to an SNS topic, which webhooks into the Fastify API. Real-time, scalable to thousands of events per second, zero polling required.</li>
       <li><strong>Domain Verification Flow</strong> &mdash; User submits domain, API creates SES identity, SES returns DNS records (SPF, DKIM, DMARC), background worker polls until verified.</li>
       <li><strong>Campaign State Machine</strong> &mdash; DRAFT &rarr; SCHEDULED &rarr; SENDING &rarr; SENT, with branches to PAUSED or CANCELLED. API enforces valid transitions.</li>
@@ -563,11 +563,11 @@
       <p><strong>Why so much design upfront?</strong> According to Deloitte's Tech Trends 2026 report, only 11% of organisations actively use agentic AI in production. The biggest barrier isn't technology &mdash; it's the requirement specification gap. Agent teams need system design documents that are two to three times more detailed than what human teams typically produce.</p>
     </div>
 
-    <h2>How Did I Break 28 Tasks Across 4 Agent Teams?</h2>
+    <h2>How Did I Break 28 Tasks Across 5 Agent Teams?</h2>
 
     <p>AI-using developers complete 21% more tasks and merge 98% more pull requests, but review time increases by 91% and bugs increase by 9% (<a href="https://www.faros.ai/blog/ai-software-engineering" target="_blank" rel="noopener">Faros AI</a>, 10,000+ developers analysed). That paradox shaped my entire task breakdown strategy: maximise parallel output while minimising cross-agent dependencies that create review bottlenecks.</p>
 
-    <h3>The Four Agent Teams</h3>
+    <h3>The Five Agent Teams</h3>
 
     <table class="info-table">
       <thead>
@@ -598,12 +598,17 @@
           <td>Claude API + MCP integration, prompt engineering, E2E testing</td>
           <td>6</td>
         </tr>
+        <tr>
+          <td><strong>Code Reviewer</strong></td>
+          <td>Reviews each agent's output at end of task cycle, shares findings with Lead</td>
+          <td>Continuous</td>
+        </tr>
       </tbody>
     </table>
 
     <h3>The Weekend Sprint Plan</h3>
 
-    <p><strong>Saturday Morning &mdash; Foundation (Tasks 1&ndash;8).</strong> Everything starts with the monorepo scaffold. Once it lands, four streams open simultaneously. The Lead writes Terraform, CI/CD, Prisma schema, and the shared types package. The Frontend scaffolds Next.js. The Backend scaffolds Fastify. The AI Engineer builds the Claude API service layer.</p>
+    <p><strong>Saturday Morning &mdash; Foundation (Tasks 1&ndash;8).</strong> Everything starts with the monorepo scaffold. Once it lands, four build streams open simultaneously. The Lead writes Terraform, CI/CD, Prisma schema, and the shared types package. The Frontend scaffolds Next.js. The Backend scaffolds Fastify. The AI Engineer builds the Claude API service layer. After each task cycle, the Code Reviewer agent inspects the output and sends its findings back to the Lead.</p>
 
     <p><strong>Saturday Afternoon &mdash; Core Features (Tasks 9&ndash;16).</strong> Agents are mostly independent. Frontend adds Clerk auth and builds domain/contact UIs. Backend adds API middleware and builds domain verification and contact import endpoints. AI Engineer creates subject line and copy generators through MCP tools.</p>
 
@@ -629,7 +634,7 @@
     ├── #13 (Contact API)
     └── #19 (Campaign API)</code></pre>
 
-    <p>The critical insight: after task 1 (the scaffold), all four agents could work independently for their first two or three tasks. Dependencies only converged at integration points like the campaign wizard. Most AI coding discussions focus on individual productivity. Agent teams flip the model entirely. You stop being a developer who types faster. You become a tech lead orchestrating specialists.</p>
+    <p>The critical insight: after task 1 (the scaffold), all four build agents could work independently for their first two or three tasks. Dependencies only converged at integration points like the campaign wizard. Meanwhile, the Code Reviewer ran continuously &mdash; reviewing each agent's completed work and messaging the Lead with issues before the next cycle started. Most AI coding discussions focus on individual productivity. Agent teams flip the model entirely. You stop being a developer who types faster. You become a tech lead orchestrating specialists.</p>
 
     <!-- Chart 1: AI Productivity Paradox -->
     <figure class="chart-container">
@@ -689,7 +694,7 @@
 
     <h2>How Did the AI Agents Actually Build It?</h2>
 
-    <p>GitHub Copilot research shows AI-assisted developers complete tasks 55% faster (<a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener">GitHub Research</a>, n=95, 2022). But Copilot gives you one fast pair of hands. I needed four specialists working simultaneously. Here's how I gave each agent the context it needed to build independently.</p>
+    <p>Claude Code's <a href="https://code.claude.com/docs/en/agent-teams" target="_blank" rel="noopener">agent teams</a> let you run multiple Claude instances in parallel &mdash; each with its own context window, coordinated through a shared task list and direct messaging. I had five agents: a Team Lead orchestrating the work, three teammates each owning a different layer of the stack, and a Code Reviewer that inspected every completed task and reported findings back to the Lead before the next cycle began.</p>
 
     <h3>How Each Agent Got Its Context</h3>
 
@@ -756,13 +761,15 @@ export class AIService {
       <figcaption>The 28 tasks produced 19 git commits from initial scaffold through to landing page. Photo via Pexels.</figcaption>
     </figure>
 
-    <h2>Why Was CI/CD the Most Painful Part of the Weekend?</h2>
+    <h2>How Did the Agent Test and Fix Its Own CI/CD Pipeline?</h2>
 
-    <p>73% of developers don't use AI in their CI/CD pipelines (<a href="https://www.jetbrains.com/lp/devecosystem-2025/" target="_blank" rel="noopener">JetBrains State of CI/CD 2025</a>). After this weekend, I understand why. CI/CD was where the dream of AI-generated-everything crashed into the reality of platform-specific quirks.</p>
+    <p>73% of developers don't use AI in their CI/CD pipelines (<a href="https://www.jetbrains.com/lp/devecosystem-2025/" target="_blank" rel="noopener">JetBrains State of CI/CD 2025</a>). After this weekend, I understand why &mdash; and why agents that can close their own feedback loop change the equation entirely.</p>
 
-    <h3>Seven Fix Commits at 2am</h3>
+    <h3>The Agent's Debug-Fix-Deploy Loop</h3>
 
-    <p>The Lead Architect agent created three GitHub Actions workflows: frontend (Vercel), API (Railway), and infrastructure (Terraform). The concept is clean. The execution was painful.</p>
+    <p>The Lead Architect agent created three GitHub Actions workflows: frontend (Vercel), API (Railway), and infrastructure (Terraform). The initial YAML was syntactically correct every time. But the first deploy failed. And here's what happened next &mdash; I didn't fix it. The agent did.</p>
+
+    <p>The agent read the GitHub Actions log output, diagnosed the failure, made the fix, committed, pushed, and waited for the next run. When that failed too, it repeated the cycle. Seven commits, seven iterations, each one narrowing the gap between &ldquo;works in code&rdquo; and &ldquo;works in production.&rdquo;</p>
 
     <pre><code>471cde4 - Fix CI deploy: use Vercel CLI &amp; Railway CLI
 641cca3 - Fix web deploy: use vercel deploy for monorepo
@@ -772,13 +779,13 @@ export class AIService {
 ab5c0e4 - Fix Terraform: import existing resources
 d8c535c - Fix railway.toml: use correct property names</code></pre>
 
-    <p>Seven fix commits for three workflows. It was 2am Sunday morning when I finally got the Railway deploy working. The agents generated syntactically correct YAML every single time. But they didn't know the things you only learn by deploying:</p>
+    <p>Each fix addressed something the agent could only learn from a failed deploy:</p>
 
     <ul>
-      <li>Vercel's monorepo detection needs explicit project linking, not just a path filter</li>
-      <li>Railway requires a <code>railway.toml</code> with specific property names that differ from their older documentation</li>
-      <li>Prisma needs an explicit <code>generate</code> step in the Railway build command</li>
-      <li>My AWS resources already existed, and Terraform needed <code>import</code> commands, not <code>create</code></li>
+      <li><strong>Commit 1&ndash;2:</strong> The agent discovered Vercel's monorepo detection needs explicit project linking &mdash; it read the deploy log, switched to the Vercel CLI approach, and pushed</li>
+      <li><strong>Commit 3&ndash;4:</strong> Railway failed because it couldn't find the build config. The agent created <code>railway.toml</code>, then added a missing <code>prisma generate</code> step after reading the build error</li>
+      <li><strong>Commit 5:</strong> AWS region mismatch &mdash; the agent caught this from the Terraform plan output and corrected it</li>
+      <li><strong>Commit 6&ndash;7:</strong> Terraform tried to create resources that already existed. The agent read the &ldquo;resource already exists&rdquo; error, switched to <code>import</code> commands, then fixed <code>railway.toml</code> property names that differed from older docs</li>
     </ul>
 
     <!-- Image -->
@@ -786,12 +793,18 @@ d8c535c - Fix railway.toml: use correct property names</code></pre>
       <img src="https://images.pexels.com/photos/3861976/pexels-photo-3861976.jpeg?auto=compress&cs=tinysrgb&w=1200"
            alt="A developer's screen showing CI/CD pipeline logs and deployment configurations with error messages and success indicators"
            width="1200" height="630" loading="lazy" decoding="async">
-      <figcaption>CI/CD debugging at 2am: where AI-generated code meets platform-specific reality. Photo via Pexels.</figcaption>
+      <figcaption>The agent's autonomous debug loop: read log, diagnose, fix, push, repeat. Photo via Pexels.</figcaption>
     </figure>
 
-    <p>45.2% of developers say debugging AI-generated code takes longer than debugging their own (<a href="https://survey.stackoverflow.co/2025/" target="_blank" rel="noopener">Stack Overflow 2025</a>). For CI/CD specifically, I'd push that number to 80%. The feedback loop is brutal: commit, wait two to three minutes for the runner, read the log, fix one thing, repeat.</p>
+    <h3>Why This Matters</h3>
 
-    <p>But here's the honest truth &mdash; would I have written those three CI/CD pipelines from scratch faster myself? Probably not. The agents got me 80% of the way there in minutes. The last 20% just happened to be the painful, platform-specific, learn-by-failing part.</p>
+    <p>The feedback loop for CI/CD is brutal for humans: commit, wait two to three minutes for the runner, read the log, context-switch back into the code, fix one thing, repeat. Most developers lose focus after three or four cycles. The agent doesn't. It reads the log, reasons about the failure, and pushes a fix &mdash; all without getting frustrated or distracted at 2am.</p>
+
+    <p>My role was approval, not debugging. I reviewed each fix commit before the agent pushed, and occasionally pointed it toward the right documentation. But the diagnostic work &mdash; reading the error, understanding the platform-specific cause, and writing the targeted fix &mdash; was entirely the agent's.</p>
+
+    <div class="callout-box">
+      <p><strong>The shift:</strong> Traditional CI/CD debugging is a human grind. With agent teams, the agent owns the feedback loop: generate pipeline, deploy, read failure logs, diagnose, fix, redeploy. The human becomes the reviewer, not the debugger.</p>
+    </div>
 
     <!-- Chart 2: AI Tool Adoption -->
     <figure class="chart-container">
@@ -886,7 +899,7 @@ d8c535c - Fix railway.toml: use correct property names</code></pre>
 
     <h3>Phase 2: The Valley of Integration Pain (Saturday Night to Sunday Morning)</h3>
 
-    <p>Commits five through fifteen. TypeScript errors. CI configuration fixes. Deploy failures. Platform-specific debugging. This is the 2am grind &mdash; the phase where projects die if you don't expect it.</p>
+    <p>Commits five through fifteen. TypeScript errors. CI configuration fixes. Deploy failures. Platform-specific debugging. This is where the agent's autonomous debug loop earns its keep &mdash; reading failure logs, pushing fixes, and iterating without losing focus. The phase still takes time, but the agent handles the grind while you review and test.</p>
 
     <h3>Phase 3: Stabilise and Ship (Sunday Afternoon)</h3>
 
@@ -908,23 +921,23 @@ d8c535c - Fix railway.toml: use correct property names</code></pre>
 
     <p>The shared types package &mdash; Zod schemas, TypeScript types, constants &mdash; was the glue between agents. When the Frontend agent imported a campaign status type, it matched what the Backend agent's API returned. Without that shared contract, I'd still be debugging mismatched field names.</p>
 
-    <h3>Lesson 3: CI/CD Will Humble You</h3>
+    <h3>Lesson 3: Let the Agent Own the Deploy Loop</h3>
 
-    <p>Agents produce code that's syntactically correct but environmentally naive. They don't know your Vercel project isn't linked, your Railway service name changed, or your Terraform state already has existing resources. Budget at least 20% of your time for deploy fixes.</p>
+    <p>Agents produce code that's syntactically correct but environmentally naive &mdash; they don't know your Vercel project isn't linked or your Terraform state has existing resources. But here's the thing: the agent can read the CI failure log, diagnose the issue, and push the fix itself. And the Code Reviewer agent caught issues the build agents missed &mdash; flagging them to the Lead before the next task cycle started. My job was making architectural decisions and final approval. The agents debug and review; you architect.</p>
 
     <h3>Lesson 4: Context Window Management Is a Real Skill</h3>
 
     <p>By Sunday, some tasks needed context from five or six files across the monorepo. Giving each agent exact file paths and function signatures &mdash; not just vague descriptions &mdash; dramatically improved output quality. <code>apps/api/src/routes/campaigns.ts</code> beats &ldquo;the campaign API&rdquo; every single time.</p>
 
-    <h3>Lesson 5: You're Still the Bottleneck</h3>
+    <h3>Lesson 5: Review, Test, and Verify &mdash; That's Your Job Now</h3>
 
-    <p>The agents produced code faster than I could review it. The Prisma schema alone is 462 lines across 16 models and 8 enums. Rushing through review is how you ship bugs to production. That Faros AI finding about 91% more review time? I felt every percentage point of it.</p>
+    <p>The agents produced code faster than I could review it. The Prisma schema alone is 462 lines across 16 models and 8 enums. That's why the dedicated Code Reviewer agent was essential &mdash; it ran continuously, inspecting each agent's completed tasks and sharing insights with the Lead at the end of every cycle. That Faros AI finding about 91% more review time? The review agent absorbed most of that burden. The human's job shifts from line-by-line code review to architectural oversight and final sign-off.</p>
 
     <h2>Frequently Asked Questions</h2>
 
     <div class="faq-item">
       <p class="faq-q">Can a solo developer really build a SaaS in one weekend with AI agents?</p>
-      <p class="faq-a">Yes, with major caveats. You need strong architecture skills to define the work upfront, and you should expect a brutal middle phase of integration debugging. GitHub Research found AI-assisted developers complete tasks 55% faster (<a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener">GitHub Research</a>, 2022). Agent teams amplify this with parallelism. But the weekend includes sleep deprivation and the 2am CI/CD fixes.</p>
+      <p class="faq-a">Yes, with major caveats. You need strong architecture skills to define the work upfront, and you should expect a brutal middle phase of integration debugging. Claude Code agent teams amplify output with parallelism &mdash; five agents including a dedicated code reviewer that inspects completed tasks and shares insights with the lead. The build agents even debugged their own CI/CD pipeline autonomously. Your role shifts to architect and final approver.</p>
     </div>
 
     <div class="faq-item">
@@ -934,7 +947,7 @@ d8c535c - Fix railway.toml: use correct property names</code></pre>
 
     <div class="faq-item">
       <p class="faq-q">How much did the AI tooling and infrastructure cost?</p>
-      <p class="faq-a">Claude Code was used for all four agent sessions. Infrastructure costs &mdash; Railway starter tier, Vercel free tier, AWS SES at pennies per thousand emails &mdash; were minimal. Total weekend spend on AI and infrastructure was significantly less than one day of contract developer rates.</p>
+      <p class="faq-a">Claude Code was used for all five agent sessions (four builders plus one code reviewer). Infrastructure costs &mdash; Railway starter tier, Vercel free tier, AWS SES at pennies per thousand emails &mdash; were minimal. Total weekend spend on AI and infrastructure was significantly less than one day of contract developer rates.</p>
     </div>
 
     <div class="faq-item">
