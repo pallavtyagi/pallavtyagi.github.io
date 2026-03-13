@@ -19,7 +19,7 @@
   <meta property="article:published_time" content="2026-03-12">
   <meta property="article:modified_time" content="2026-03-13">
 
-  <meta property="og:image" content="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop&q=80">
+  <meta property="og:image" content="images/signalwave-ai-studio.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
@@ -27,7 +27,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Build a SaaS With AI Agents: A Weekend Story">
   <meta name="twitter:description" content="From personal email pain to production SaaS in 48 hours. 5 AI agent teams — including a code reviewer — 9 architecture diagrams, and Claude testing the app in Chrome.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop&q=80">
+  <meta name="twitter:image" content="images/signalwave-ai-studio.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -399,12 +399,13 @@
       <p><strong>TL;DR:</strong> A tight deadline forced me to hack together a Python script for bulk email. A week later, I replaced it with a full SaaS &mdash; built in one weekend using 4 parallel AI agent teams in Claude Code. The platform lets you build templates with in-app AI or push them from Claude via an MCP connector. GitHub Research shows AI-assisted developers complete tasks 55% faster (<a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" target="_blank" rel="noopener">GitHub Research</a>, 2022). The real unlock was system design first, agents second.</p>
     </div>
 
-    <!-- Hero Image -->
+    <!-- Hero Image: Project Snapshot -->
     <figure>
-      <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop&q=80"
-           alt="Abstract programming code on a dark screen representing a weekend hackathon where five AI agent teams build a micro-SaaS from scratch in parallel"
-           width="1200" height="630" fetchpriority="high" decoding="async">
-      <figcaption>One weekend, four AI agents, 28 tasks, one deployed product. Photo via Unsplash.</figcaption>
+      <img src="images/signalwave-ai-studio.png"
+           alt="SignalWave AI Studio interface showing the Subject Line Generator with campaign name, type, audience, tone, and industry fields — the AI-native email platform built in one weekend with agent teams"
+           width="1200" height="630" fetchpriority="high" decoding="async"
+           style="border-radius: 12px; border: 1px solid rgba(128,128,128,0.2);">
+      <figcaption>The finished product: SignalWave's AI Studio &mdash; generate subject lines, email copy, and full templates from a single interface. Built in one weekend with five AI agent teams.</figcaption>
     </figure>
 
     <p>Friday evening I had a problem. Sunday night I had a deployed product. A week earlier, I'd needed to send thousands of emails on a tight deadline and there was nothing in the toolbox to deliver it. No internal tool, no budget for an enterprise platform, no time to evaluate vendors. So I did what developers do &mdash; I hacked together a Python script. It called Amazon SES to send, piped events into Kinesis Data Firehose, dumped them into S3, and then I ran <em>another</em> script to manually pull and parse those event files to figure out what actually happened. No UI. No dedup. No real-time anything. Just scripts, cron jobs, and prayer.</p>
